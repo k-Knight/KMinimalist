@@ -81,23 +81,24 @@ This function applies style to a GUI element (*also works with safe API objects*
 
 Style is defined as a ***[table]*** that contains style elements. Style elements can be regular Factorio API style elements, see [API reference](https://lua-api.factorio.com/latest/LuaStyle.html). For convenience also supports syntactic sugar elements that are listed below:
 
-* **``width_f``** – sets ``minimal_width``, ``maximal_width`` and ``width`` to the same ***[number]*** value
-* **``height_f``** – sets ``minimal_height``, ``maximal_height`` and ``height`` to the same ***[number]*** value
-* **``padding``** – sets ``top_padding``, ``right_padding``, ``bottom_padding`` and ``left_padding`` to the same ***[number]*** value
-* **``vertical_padding``** – sets ``top_padding`` and ``bottom_padding`` to the same ***[number]*** value
-* **``horizontal_padding``** – sets ``right_padding`` and ``left_padding`` to the same ***[number]*** value
-* **``vertical_cell_padding``** – sets ``top_cell_padding`` and ``bottom_cell_padding`` to the same ***[number]*** value
-* **``horizontal_cell_padding``** – sets ``right_cell_padding`` and ``left_cell_padding`` to the same ***[number]*** value
-* **``title_padding``** – sets ``title_top_padding``, ``title_right_padding``, ``title_bottom_padding`` and ``title_left_padding`` to the same ***[number]*** value
-* **``title_vertical_padding``** – sets ``title_top_padding`` and ``title_bottom_padding`` to the same ***[number]*** value
-* **``title_horizontal_padding``** – sets ``title_right_padding`` and ``title_left_padding`` to the same ***[number]*** value
-* **``margin``** – sets ``top_margin``, ``right_margin``, ``bottom_margin`` and ``left_margin`` to the same ***[number]*** value
-* **``vertical_margin``** – sets ``top_margin`` and ``bottom_margin`` to the same ***[number]*** value
-* **``horizontal_margin``** – sets ``right_margin`` and ``left_margin`` to the same ***[number]*** value
-* **``extra_margin_when_activated``** – sets ``extra_top_margin_when_activated``, ``extra_right_margin_when_activated``, ``extra_bottom_margin_when_activated`` and ``extra_left_margin_when_activated`` to the same ***[number]*** value
-* **``extra_vertical_margin_when_activated``** – sets ``extra_top_margin_when_activated`` and ``extra_bottom_margin_when_activated`` to the same ***[number]*** value
-* **``extra_horizontal_margin_when_activated``** – sets ``extra_right_margin_when_activated`` and ``extra_left_margin_when_activated`` to the same ***[number]*** value
-* **``spacing``** – sets ``horizontal_spacing`` and ``vertical_spacing`` to the same ***[number]*** value
+**Property** | **Type** | **Elements**
+--- | --- | ---
+**``width_f``** | ***[number]*** | ``minimal_width``<br/> ``maximal_width``<br/> ``width``
+**``padding``** | ***[number]*** | ``top_padding``<br/> ``right_padding``<br/> ``bottom_padding``<br/> ``left_padding``
+**``vertical_padding``** | ***[number]*** | ``top_padding``<br/> ``bottom_padding``
+**``horizontal_padding``** | ***[number]*** | ``right_padding``<br/> ``left_padding``
+**``vertical_cell_padding``** | ***[number]*** | ``top_cell_padding``<br/> ``bottom_cell_padding``
+**``horizontal_cell_padding``** | ***[number]*** | ``right_cell_padding``<br/> ``left_cell_padding``
+**``title_padding``** | ***[number]*** | ``title_top_padding``<br/> ``title_right_padding``<br/> ``title_bottom_padding``<br/> ``title_left_padding``
+**``title_vertical_padding``** | ***[number]*** | ``title_top_padding``<br/> ``title_bottom_padding``
+**``title_horizontal_padding``** | ***[number]*** | ``title_right_padding``<br/> ``title_left_padding``
+**``margin``** | ***[number]*** | ``top_margin``<br/> ``right_margin``<br/> ``bottom_margin``<br/> ``left_margin``
+**``vertical_margin``** | ***[number]*** | ``top_margin``<br/> ``bottom_margin``
+**``horizontal_margin``** | ***[number]*** | ``right_margin``<br/> ``left_margin``
+**``extra_margin_when_activated``** | ***[number]*** | ``extra_top_margin_when_activated``<br/> ``extra_right_margin_when_activated``<br/> ``extra_bottom_margin_when_activated``<br/> ``extra_left_margin_when_activated``
+**``extra_vertical_margin_when_activated``** | ***[number]*** | ``extra_top_margin_when_activated``<br/> ``extra_bottom_margin_when_activated``
+**``extra_horizontal_margin_when_activated``** | ***[number]*** | ``extra_right_margin_when_activated``<br/> ``extra_left_margin_when_activated``
+**``spacing``** | ***[number]*** | ``horizontal_spacing``<br/> ``vertical_spacing``
 
 ## File ``kminimalist_utility.lua``
 
