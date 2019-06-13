@@ -30,6 +30,12 @@ This function does the registration of event handlers without overriding.
 * **``event``** – the ***[number]*** id if the event that event handler will be registered to ([API reference](https://lua-api.factorio.com/latest/defines.html#defines.events))
 * **``handler``** – handler ***[function]*** that takes event information table as an argument
 
+```lua
+KMinimalistBootstrap.register(defines.events.on_player_joined_game, function(event)
+    game.print("Say hello to: " .. event.player_index.name)
+end)
+```
+
 ## File ``kminimalist_safe_api_object.lua``
 
 Provides functionality to work safely with Facorio API obejcts. When you create a safe API object you can freely index it without being afraid of causing script errors. Two important notices:
