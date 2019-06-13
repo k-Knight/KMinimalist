@@ -1,16 +1,16 @@
 # kminimalist
 
-Minimalist library for working with API objects of the game Factorio.
+A minimalist library for working with API objects of the game Factorio.
 
-## What kminimalist is for exactly
+## What kminimalist is exactly for
 
-This Lua library is intented for working with Factorio API objects in a conveient way. More precisely, this it is designed to be used in **cotrol stage** of the game script (or mod) and later during **runtime**.
+This Lua library is intended for working with Factorio API objects in a convenient way. More precisely, it is designed to be used in the **cotrol stage** of the game script (or mod) and later during **runtime**.
 
 Kminimalist offers functionality for following situations:
 
-* Registering event handlers in a way that previous event handler doesn't get overridden
+* Registering event handlers in a way that the previous event handler doesn't get overridden
 * Working with Factorio API objects in a safe way that does not cause errors and does not require a lot if checks
-* Working with **styles of GUI** elements in a convenient way **during runtime** without data stage
+* Working with **styles of GUI** elements in a convenient way **during runtime** without the data stage
 * Utility scripts, for instance, deep copying Lua objects
 
 # kminimalist reference
@@ -21,13 +21,13 @@ Supports registration of event handlers without overriding old handlers. Also ha
 
 ### Function ``KMinimalistBootstrap.init()``
 
-Must be called at game runtime in order for kminimalist library to function properly.
+Must be called at game runtime in order for the kminimalist library to function properly.
 
 ### Function ``KMinimalistBootstrap.register(event, handler)``
 
 This function does the registration of event handlers without overriding.
 
-* **``event``** – the ***[number]*** id if the event that event handler will be registered to ([API reference](https://lua-api.factorio.com/latest/defines.html#defines.events))
+* **``event``** – the ***[number]*** id if the event that the event handler will be registered to ([API reference](https://lua-api.factorio.com/latest/defines.html#defines.events))
 * **``handler``** – handler ***[function]*** that takes event information table as an argument
 
 ### Example of event registration
@@ -42,28 +42,28 @@ Prints ***"Say hello to: player_name"*** every time a player joins the game
 
 ## File ``kminimalist_safe_api_object.lua``
 
-Provides functionality to work safely with Facorio API obejcts. When you create a safe API object you can freely index it without being afraid of causing script errors. Two important notices:
+Provides functionality to work safely with Facorio API objects. When you create a safe API object you can freely index it without being afraid of causing script errors. Two important notices:
 
-* Safe API objects **must not be saved** in a global save as Factorio does not support saving metatables of Lua tables
-* Using safe API objects **decreases performance** but saves numerous checks and conditional statements
+* Safe API objects **must not be saved** in a global table as Factorio does not support saving metatables of Lua tables
+* Using safe API objects **decreases performance**, but saves numerous checks and conditional statements
 
 ### Safe API object functionality
 
-* Allows **indexing** (operators: ``.`` and ``[]``). If the result of indexing is ``nil`` or the object is not ``valid`` then returns **empty, but safe** object that can be indexed further though the result always will be ``nil``.
-* Allows **assignment**. Assignment takes place **only in safe conditions** (object is not ``nil`` and is ``valid``). Otherwise assignment is ignored.
+* Allows **indexing** (operators: ``.`` and ``[]``). If the result of indexing is ``nil`` or the object is not ``valid`` then returns an **empty but safe** object that can be indexed further though the result always will be ``nil``.
+* Allows **assignment**. The assignment takes place **only in safe conditions** (object is not ``nil`` and is ``valid``). Otherwise assignment is ignored.
 * Allows making **calls of object's functions**. If the function is not defied then returns ``nil``.
 * Has property ``is_api_safe`` set to ``true`` if the object is safe API object.
 * Has property ``is_nil`` set to ``true`` if the real objects equals to ``nil``.
 
 ### Function ``KMinimalistSafeApiObject.new(api_obj)``
 
-This fuction creates safe API object.
+This function creates safe API object.
 
-* **``api_obj``** – ***[string]*** anobject to be made safe
+* **``api_obj``** – ***[string]*** an object to be made safe
 
 ### Function ``KMinimalistSafeApiObject.get_real_obj(obj)``
 
-Returns the real object. In case of object that is not safe API object then returns the object itself.
+Returns the real object. In case of an object that is not safe API object, then returns the object itself.
 
 * **``obj``** – ***[any]*** an object from which to retrieve the real object
 
@@ -118,7 +118,7 @@ Expected output:
 
 ## File ``kminimalist_styling.lua``
 
-Provides functionality for applyig and managing styles during runtime of the game. It should be noted that the styles managed by the library **are separate and independant from** the game GUI element styles.
+Provides functionality for applying and managing styles during runtime of the game. It should be noted that the styles managed by the library **are separate and independent from** the game GUI element styles.
 
 ### Function ``KMinimalistStyling.define_style(name, style, override)``
 
@@ -126,14 +126,14 @@ This function defines and stores the style for future use. **Can be used only du
 
 * **``name``** – the ***[string]*** name of the style (*must be unique*)
 * **``style``** – ***[table]*** that contains style definition, see [style definition](#style-definition)
-* **``override``** – ***[boolean]*** optional argument that if set to ``true`` allows existing style to be overriden, else existing style does not get overriden
+* **``override``** – ***[boolean]*** optional argument that if set to ``true`` allows existing style to be overridden, else existing style does not get overridden
 
 ### Function ``KMinimalistStyling.apply_style(gui_element, style, override)``
 
-This function applies style to a GUI element (*also works with safe API objects*).
+This function applies a style to a GUI element (*also works with safe API objects*).
 
 * **``gui_element``** – the GUI element to which to apply style
-* **``style``** – ***[string]*** name of the defined style or ***[table]*** containing style definition, see [style definition](#style-definition)
+* **``style``** – ***[string]*** name of the defined style or ***[table]*** containing the style definition, see [style definition](#style-definition)
 * **``override``** – ***[table]*** optional argument that if not ``nil`` then overrides the defined style's elements (*``style`` must be a name of a defined style*)
 
 ### Style definition
@@ -190,10 +190,10 @@ KMinimalistStyling.apply_style(
 
 ## File ``kminimalist_utility.lua``
 
-This file contains general utility functions.
+This file contains miscellaneous utility functions.
 
 ### Function ``KMinimalistUtility.deep_copy(obj)``
 
 Makes a deep copy of the object.
 
-* **``obj``** – ***[any]*** an object to make deep copy of
+* **``obj``** – ***[any]*** an object to make a deep copy of
