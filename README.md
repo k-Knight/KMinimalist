@@ -162,7 +162,11 @@ Style is defined as a ***[table]*** that contains style elements. Style elements
 ### Example of working with styles
 
 ```lua
-KMinimalistStyling.define_style( "example_style", { width_f = 400, top_padding = 50, bottom_margin = 30 }, false )
+KMinimalistStyling.define_style(
+    "example_style",
+    { width_f = 400, top_padding = 50, bottom_margin = 30 },
+    false
+)
 
 game.players[1].gui.top.add{type = "frame", caption = "Example frame", name = "frame_1"}
 KMinimalistStyling.apply_style(
