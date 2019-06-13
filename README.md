@@ -164,19 +164,19 @@ Style is defined as a ***[table]*** that contains style elements. Style elements
 ```lua
 KMinimalistStyling.define_style( "example_style", { width_f = 400, top_padding = 50, bottom_margin = 30 }, false )
 
-game.players[1].gui.top.add{type = "frame", caption = "Example frame", name = "frame_1", direction = "vertical"}
+game.players[1].gui.top.add{type = "frame", caption = "Example frame", name = "frame_1"}
 KMinimalistStyling.apply_style(
     game.players[1].gui.top.frame_1,
     "example_style"
 )
 
-game.players[1].gui.top.frame_1.add{type = "frame", caption = "inner frame 1", name = "frame_2", direction = "vertical"}
+game.players[1].gui.top.frame_1.add{type = "frame", caption = "inner frame 1", name = "frame_2"}
 KMinimalistStyling.apply_style(
     game.players[1].gui.top.frame_1.frame_2,
     { width = 300, margin = 40}
 )
 
-game.players[1].gui.top.frame_1.add{type = "frame", caption = "inner frame 2", name = "frame_3", direction = "vertical"}
+game.players[1].gui.top.frame_1.add{type = "frame", caption = "inner frame 2", name = "frame_3"}
 KMinimalistStyling.apply_style(
     game.players[1].gui.top.frame_1.frame_3,
     "example_style",
