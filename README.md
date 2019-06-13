@@ -81,7 +81,7 @@ This function applies style to a GUI element (*also works with safe API objects*
 
 Style is defined as a ***[table]*** that contains style elements. Style elements can be regular Factorio API style elements, see [API reference](https://lua-api.factorio.com/latest/LuaStyle.html). For convenience also supports syntactic sugar elements that are listed below:
 
-**Property** | **Type** | **Elements**
+**Syntactic sugar** | **Type** | **Sets elements**
 --- | --- | ---
 **``width_f``** | ***[number]*** | ``minimal_width``<br/> ``maximal_width``<br/> ``width``
 **``padding``** | ***[number]*** | ``top_padding``<br/> ``right_padding``<br/> ``bottom_padding``<br/> ``left_padding``
