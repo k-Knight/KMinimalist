@@ -1,3 +1,24 @@
+<style>
+    h1, h2, h3, h4 {
+        font-weight: bold;
+    }
+    h1 {
+        font-size: 2em;
+        border-bottom: 1px solid #444;
+    }
+    h2 {
+        font-size: 1.5em;
+        border-bottom: 1px solid #666;
+    }
+    h3 {
+        font-size: 1.25em;
+    }
+    h4 {
+        font-size: 1.15em;
+        font-style: italic;
+    }
+</style>
+
 # kminimalist
 
 Minimalist library for working with API objects of the game Factorio.
@@ -30,7 +51,7 @@ This function does the registration of event handlers without overriding.
 * **``event``** – the ***[number]*** id if the event that event handler will be registered to ([API reference](https://lua-api.factorio.com/latest/defines.html#defines.events))
 * **``handler``** – handler ***[function]*** that takes event information table as an argument
 
-#### Example
+#### Example of event registration
 
 ```lua
 KMinimalistBootstrap.register(defines.events.on_player_joined_game, function(event)
@@ -55,7 +76,7 @@ Provides functionality to work safely with Facorio API obejcts. When you create 
 * Has property ``is_api_safe`` set to ``true`` if the object is safe API object.
 * Has property ``is_nil`` set to ``true`` if the real objects equals to ``nil``.
 
-#### Example
+#### Example of work with safe API objects
 
 ```lua
 object = {
