@@ -21,7 +21,7 @@ Supports registration of event handlers without overriding old handlers. Also ha
 
 ### Function ``KMinimalistBootstrap.init()``
 
-Should be called at game runtime in order for kminimalist library to function properly.
+Must be called at game runtime in order for kminimalist library to function properly.
 
 ### Function ``KMinimalistBootstrap.register(event, handler)``
 
@@ -34,9 +34,11 @@ This function does the registration of event handlers without overriding.
 
 ```lua
 KMinimalistBootstrap.register(defines.events.on_player_joined_game, function(event)
-    game.print("Say hello to: " .. event.player_index.name)
+    game.print("Say hello to: " .. game.players[event.player_index].name)
 end)
 ```
+
+Prints ***"Say hello to: player_name"*** every time a player joins the game
 
 ## File ``kminimalist_safe_api_object.lua``
 
@@ -52,6 +54,55 @@ Provides functionality to work safely with Facorio API obejcts. When you create 
 * Allows making **calls of object's functions**. If the function is not defied then returns ``nil``.
 * Has property ``is_api_safe`` set to ``true`` if the object is safe API object.
 * Has property ``is_nil`` set to ``true`` if the real objects equals to ``nil``.
+
+#### Example
+
+```lua
+object = {
+    valid = true,
+    a = 1,
+    b = {
+        valid = true,
+        c = 2,
+        d = {
+            valid = false,
+            e = 3
+        }
+    },
+    f = "no",
+    g = function() return "function g" end
+}
+
+safe = KMinimalistSafeApiObject.new(object)
+
+game.print("Safe A:            " .. safe.a )
+game.print("Safe B.[\"C\"]:      " .. safe.b["c"] )
+game.print("Safe is_nil:       " .. tostring( safe.b.d.e.is_nil ))
+game.print("Safe is_api_safe:  " .. tostring( safe.k.i.b.is_api_safe ))
+game.print("Safe E:            " .. tostring(
+    KMinimalistSafeApiObject.get_real_obj(safe.e )
+))
+game.print("Unsafe B.D.E:      " .. KMinimalistSafeApiObject.get_real_obj(safe.b.d).e )
+
+safe.f = "yes";
+
+game.print("Safe F:            " .. safe.f )
+game.print("Safe G():          " .. safe.g() )
+game.print("Safe H():          " .. tostring( safe.h() ))
+```
+
+Expected output:
+
+    Safe A:            1
+    Safe B.["C"]:      2
+    Safe is_nil:       true
+    Safe is_api_safe:  true
+    Safe E:            nil
+    Unsafe B.D.E:      3
+    Safe F:            yes
+    Safe G():          function g
+    Safe H():          nil
+
 
 ### Function ``KMinimalistSafeApiObject.new(api_obj)``
 
