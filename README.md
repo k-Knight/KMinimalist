@@ -126,7 +126,7 @@ This function defines and stores the style for future use. **Can be used only du
 
 * **``name``** – the ***[string]*** name of the style (*must be unique*)
 * **``style``** – ***[table]*** that contains style definition, see [style definition](#style-definition)
-* **``override``** – ***[boolean]*** value that if set to ``true`` allows existing style to be overriden, else existing style does not get overriden
+* **``override``** – ***[boolean]*** optional argument that if set to ``true`` allows existing style to be overriden, else existing style does not get overriden
 
 ### Function ``KMinimalistStyling.apply_style(gui_element, style, override)``
 
