@@ -1,26 +1,3 @@
-<style>
-    h1, h2, h3, h4 {
-        font-weight: bold;
-    }
-    h1 {
-        font-size: 2em;
-        border-bottom: 1px solid #444;
-    }
-    h2 {
-        font-size: 1.5em;
-        border-bottom: 1px solid #666;
-    }
-    h3 {
-        font-size: 1.25em;
-    }
-    h4 {
-        font-size: 1.15em;
-        font-style: italic;
-    }
-</style>
-
-<h1 style="font-size: 5em;">some text</h1>
-
 # kminimalist
 
 Minimalist library for working with API objects of the game Factorio.
@@ -53,7 +30,7 @@ This function does the registration of event handlers without overriding.
 * **``event``** – the ***[number]*** id if the event that event handler will be registered to ([API reference](https://lua-api.factorio.com/latest/defines.html#defines.events))
 * **``handler``** – handler ***[function]*** that takes event information table as an argument
 
-#### Example of event registration
+### Example of event registration
 
 ```lua
 KMinimalistBootstrap.register(defines.events.on_player_joined_game, function(event)
@@ -78,7 +55,19 @@ Provides functionality to work safely with Facorio API obejcts. When you create 
 * Has property ``is_api_safe`` set to ``true`` if the object is safe API object.
 * Has property ``is_nil`` set to ``true`` if the real objects equals to ``nil``.
 
-#### Example of work with safe API objects
+### Function ``KMinimalistSafeApiObject.new(api_obj)``
+
+This fuction creates safe API object.
+
+* **``api_obj``** – ***[string]*** anobject to be made safe
+
+### Function ``KMinimalistSafeApiObject.get_real_obj(obj)``
+
+Returns the real object. In case of object that is not safe API object then returns the object itself.
+
+* **``obj``** – ***[any]*** an object from which to retrieve the real object
+
+### Example of work with safe API objects
 
 ```lua
 object = {
@@ -127,18 +116,6 @@ Expected output:
     Safe H():          nil
 
 
-### Function ``KMinimalistSafeApiObject.new(api_obj)``
-
-This fuction creates safe API object.
-
-* **``api_obj``** – ***[string]*** anobject to be made safe
-
-### Function ``KMinimalistSafeApiObject.get_real_obj(obj)``
-
-Returns the real object. In case of object that is not safe API object then returns the object itself.
-
-* **``obj``** – ***[any]*** an object from which to retrieve the real object
-
 ## File ``kminimalist_styling.lua``
 
 Provides functionality for applyig and managing styles during runtime of the game. It should be noted that the styles managed by the library **are separate and independant from** the game GUI element styles.
@@ -181,6 +158,31 @@ Style is defined as a ***[table]*** that contains style elements. Style elements
 **``extra_vertical_margin_when_activated``** | ***[number]*** | ``extra_top_margin_when_activated``<br/> ``extra_bottom_margin_when_activated``
 **``extra_horizontal_margin_when_activated``** | ***[number]*** | ``extra_right_margin_when_activated``<br/> ``extra_left_margin_when_activated``
 **``spacing``** | ***[number]*** | ``horizontal_spacing``<br/> ``vertical_spacing``
+
+### Example of working with styles
+
+```lua
+KMinimalistStyling.define_style( "example_style", { width_f = 400, top_padding = 50, bottom_margin = 30 }, false )
+
+game.players[1].gui.top.add{type = "frame", caption = "Example frame", name = "frame_1", direction = "vertical"}
+KMinimalistStyling.apply_style(
+    game.players[1].gui.top.frame_1,
+    "example_style"
+)
+
+game.players[1].gui.top.frame_1.add{type = "frame", caption = "inner frame 1", name = "frame_2", direction = "vertical"}
+KMinimalistStyling.apply_style(
+    game.players[1].gui.top.frame_1.frame_2,
+    { width = 300, margin = 40}
+)
+
+game.players[1].gui.top.frame_1.add{type = "frame", caption = "inner frame 2", name = "frame_3", direction = "vertical"}
+KMinimalistStyling.apply_style(
+    game.players[1].gui.top.frame_1.frame_3,
+    "example_style",
+    { width_f = 200}
+)
+```
 
 ## File ``kminimalist_utility.lua``
 
