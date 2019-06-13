@@ -92,9 +92,9 @@ game.print("Safe B.[\"C\"]:      " .. safe.b["c"] )
 game.print("Safe is_nil:       " .. tostring( safe.b.d.e.is_nil ))
 game.print("Safe is_api_safe:  " .. tostring( safe.k.i.b.is_api_safe ))
 game.print("Safe E:            " .. tostring(
-    KMinimalistSafeApiObject.get_real_obj(safe.e )
+    KMinimalistSafeApiObject.get_real_obj( safe.e )
 ))
-game.print("Unsafe B.D.E:      " .. KMinimalistSafeApiObject.get_real_obj(safe.b.d).e )
+game.print("Unsafe B.D.E:      " .. KMinimalistSafeApiObject.get_real_obj( safe.b.d ).e )
 
 safe.f = "yes";
 
@@ -177,14 +177,14 @@ KMinimalistStyling.apply_style(
 game.players[1].gui.top.frame_1.add{type = "frame", caption = "inner frame 1", name = "frame_2"}
 KMinimalistStyling.apply_style(
     game.players[1].gui.top.frame_1.frame_2,
-    { width = 300, margin = 40}
+    { width = 300, margin = 40 }
 )
 
 game.players[1].gui.top.frame_1.add{type = "frame", caption = "inner frame 2", name = "frame_3"}
 KMinimalistStyling.apply_style(
     game.players[1].gui.top.frame_1.frame_3,
     "example_style",
-    { width_f = 200}
+    { width_f = 200 }
 )
 ```
 
