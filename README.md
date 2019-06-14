@@ -132,7 +132,7 @@ This function defines and stores the style for future use. **Can be used only du
 
 This function applies a style to a GUI element (*also works with safe API objects*).
 
-* **``gui_element``** – the GUI element to which to apply style
+* **``gui_element``** – ***table*** the [LuaGuiElement](https://lua-api.factorio.com/latest/LuaGuiElement.html) to which to apply style
 * **``style``** – ***string*** name of the defined style or ***table*** containing the style definition, see [style definition](#style-definition)
 * **``override``** – ***table*** optional argument that if not ``nil`` then overrides the defined style's elements (*``style`` must be a name of a defined style*)
 
