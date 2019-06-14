@@ -15,7 +15,7 @@ Kminimalist offers functionality for following situations:
 
 # KMinimalist reference
 
-## File ``KMinimalist_bootstrap.lua``
+## File ``kminimalist_bootstrap.lua``
 
 Supports registration of event handlers without overriding old handlers. Also has initialization that **MUST** be called to for KMinimalist library to work during runtime of the game.
 
@@ -40,7 +40,7 @@ end)
 
 Prints ***"Say hello to: player_name"*** every time a player joins the game
 
-## File ``KMinimalist_safe_api_object.lua``
+## File ``kminimalist_safe_api_object.lua``
 
 Provides functionality to work safely with Facorio API objects. When you create a safe API object you can freely index it without being afraid of causing script errors. Two important notices:
 
@@ -116,7 +116,7 @@ Expected output:
     Safe H():          nil
 
 
-## File ``KMinimalist_styling.lua``
+## File ``kminimalist_styling.lua``
 
 Provides functionality for applying and managing styles during runtime of the game. It should be noted that the styles managed by the library **are separate and independent from** the game GUI element styles.
 
@@ -188,7 +188,7 @@ KMinimalistStyling.apply_style(
 )
 ```
 
-## File ``KMinimalist_utility.lua``
+## File ``kminimalist_utility.lua``
 
 This file contains miscellaneous utility functions.
 
