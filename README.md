@@ -1,8 +1,8 @@
-# kminimalist
+# KMinimalist
 
 A minimalist library for working with API objects of the game Factorio.
 
-## What kminimalist is exactly for
+## What KMinimalist is exactly for
 
 This Lua library is intended for working with Factorio API objects in a convenient way. More precisely, it is designed to be used in the **cotrol stage** of the game script (or mod) and later during **runtime**.
 
@@ -13,15 +13,15 @@ Kminimalist offers functionality for following situations:
 * Working with **styles of GUI** elements in a convenient way **during runtime** without the data stage
 * Utility scripts, for instance, deep copying Lua objects
 
-# kminimalist reference
+# KMinimalist reference
 
-## File ``kminimalist_bootstrap.lua``
+## File ``KMinimalist_bootstrap.lua``
 
-Supports registration of event handlers without overriding old handlers. Also has initialization that **MUST** be called to for kminimalist library to work during runtime of the game.
+Supports registration of event handlers without overriding old handlers. Also has initialization that **MUST** be called to for KMinimalist library to work during runtime of the game.
 
 ### Function ``KMinimalistBootstrap.init()``
 
-Must be called at game runtime in order for the kminimalist library to function properly.
+Must be called at game runtime in order for the KMinimalist library to function properly.
 
 ### Function ``KMinimalistBootstrap.register(event, handler)``
 
@@ -40,7 +40,7 @@ end)
 
 Prints ***"Say hello to: player_name"*** every time a player joins the game
 
-## File ``kminimalist_safe_api_object.lua``
+## File ``KMinimalist_safe_api_object.lua``
 
 Provides functionality to work safely with Facorio API objects. When you create a safe API object you can freely index it without being afraid of causing script errors. Two important notices:
 
@@ -116,7 +116,7 @@ Expected output:
     Safe H():          nil
 
 
-## File ``kminimalist_styling.lua``
+## File ``KMinimalist_styling.lua``
 
 Provides functionality for applying and managing styles during runtime of the game. It should be noted that the styles managed by the library **are separate and independent from** the game GUI element styles.
 
@@ -188,7 +188,7 @@ KMinimalistStyling.apply_style(
 )
 ```
 
-## File ``kminimalist_utility.lua``
+## File ``KMinimalist_utility.lua``
 
 This file contains miscellaneous utility functions.
 
