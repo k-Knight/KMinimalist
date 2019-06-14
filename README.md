@@ -27,8 +27,8 @@ Must be called at game runtime in order for the kminimalist library to function 
 
 This function does the registration of event handlers without overriding.
 
-* **``event``** – the ***[number]*** id if the event that the event handler will be registered to ([API reference](https://lua-api.factorio.com/latest/defines.html#defines.events))
-* **``handler``** – handler ***[function]*** that takes event information table as an argument
+* **``event``** – the ***number*** id if the event that the event handler will be registered to ([API reference](https://lua-api.factorio.com/latest/defines.html#defines.events))
+* **``handler``** – handler ***function*** that takes event information table as an argument
 
 ### Example of event registration
 
@@ -59,13 +59,13 @@ Provides functionality to work safely with Facorio API objects. When you create 
 
 This function creates safe API object.
 
-* **``api_obj``** – ***[string]*** an object to be made safe
+* **``api_obj``** – ***string*** an object to be made safe
 
 ### Function ``KMinimalistSafeApiObject.get_real_obj(obj)``
 
 Returns the real object. In case of an object that is not safe API object, then returns the object itself.
 
-* **``obj``** – ***[any]*** an object from which to retrieve the real object
+* **``obj``** – ***any*** an object from which to retrieve the real object
 
 ### Example of work with safe API objects
 
@@ -124,40 +124,40 @@ Provides functionality for applying and managing styles during runtime of the ga
 
 This function defines and stores the style for future use. **Can be used only during runtime**. Can also be used to override existing styles.
 
-* **``name``** – the ***[string]*** name of the style (*must be unique*)
-* **``style``** – ***[table]*** that contains style definition, see [style definition](#style-definition)
-* **``override``** – ***[boolean]*** optional argument that if set to ``true`` allows existing style to be overridden, else existing style does not get overridden
+* **``name``** – the ***string*** name of the style (*must be unique*)
+* **``style``** – ***table*** that contains style definition, see [style definition](#style-definition)
+* **``override``** – ***boolean*** optional argument that if set to ``true`` allows existing style to be overridden, else existing style does not get overridden
 
 ### Function ``KMinimalistStyling.apply_style(gui_element, style, override)``
 
 This function applies a style to a GUI element (*also works with safe API objects*).
 
 * **``gui_element``** – the GUI element to which to apply style
-* **``style``** – ***[string]*** name of the defined style or ***[table]*** containing the style definition, see [style definition](#style-definition)
-* **``override``** – ***[table]*** optional argument that if not ``nil`` then overrides the defined style's elements (*``style`` must be a name of a defined style*)
+* **``style``** – ***string*** name of the defined style or ***table*** containing the style definition, see [style definition](#style-definition)
+* **``override``** – ***table*** optional argument that if not ``nil`` then overrides the defined style's elements (*``style`` must be a name of a defined style*)
 
 ### Style definition
 
-Style is defined as a ***[table]*** that contains style elements. Style elements can be regular Factorio API style elements, see [API reference](https://lua-api.factorio.com/latest/LuaStyle.html). For convenience also supports syntactic sugar elements that are listed below:
+Style is defined as a ***table*** that contains style elements. Style elements can be regular Factorio API style elements, see [API reference](https://lua-api.factorio.com/latest/LuaStyle.html). For convenience also supports syntactic sugar elements that are listed below:
 
 **Syntactic sugar** | **Type** | **Sets elements**
 --- | --- | ---
-**``width_f``** | ***[number]*** | ``minimal_width``<br/> ``maximal_width``<br/> ``width``
-**``padding``** | ***[number]*** | ``top_padding``<br/> ``right_padding``<br/> ``bottom_padding``<br/> ``left_padding``
-**``vertical_padding``** | ***[number]*** | ``top_padding``<br/> ``bottom_padding``
-**``horizontal_padding``** | ***[number]*** | ``right_padding``<br/> ``left_padding``
-**``vertical_cell_padding``** | ***[number]*** | ``top_cell_padding``<br/> ``bottom_cell_padding``
-**``horizontal_cell_padding``** | ***[number]*** | ``right_cell_padding``<br/> ``left_cell_padding``
-**``title_padding``** | ***[number]*** | ``title_top_padding``<br/> ``title_right_padding``<br/> ``title_bottom_padding``<br/> ``title_left_padding``
-**``title_vertical_padding``** | ***[number]*** | ``title_top_padding``<br/> ``title_bottom_padding``
-**``title_horizontal_padding``** | ***[number]*** | ``title_right_padding``<br/> ``title_left_padding``
-**``margin``** | ***[number]*** | ``top_margin``<br/> ``right_margin``<br/> ``bottom_margin``<br/> ``left_margin``
-**``vertical_margin``** | ***[number]*** | ``top_margin``<br/> ``bottom_margin``
-**``horizontal_margin``** | ***[number]*** | ``right_margin``<br/> ``left_margin``
-**``extra_margin_when_activated``** | ***[number]*** | ``extra_top_margin_when_activated``<br/> ``extra_right_margin_when_activated``<br/> ``extra_bottom_margin_when_activated``<br/> ``extra_left_margin_when_activated``
-**``extra_vertical_margin_when_activated``** | ***[number]*** | ``extra_top_margin_when_activated``<br/> ``extra_bottom_margin_when_activated``
-**``extra_horizontal_margin_when_activated``** | ***[number]*** | ``extra_right_margin_when_activated``<br/> ``extra_left_margin_when_activated``
-**``spacing``** | ***[number]*** | ``horizontal_spacing``<br/> ``vertical_spacing``
+**``width_f``** | ***number*** | ``minimal_width``<br/> ``maximal_width``<br/> ``width``
+**``padding``** | ***number*** | ``top_padding``<br/> ``right_padding``<br/> ``bottom_padding``<br/> ``left_padding``
+**``vertical_padding``** | ***number*** | ``top_padding``<br/> ``bottom_padding``
+**``horizontal_padding``** | ***number*** | ``right_padding``<br/> ``left_padding``
+**``vertical_cell_padding``** | ***number*** | ``top_cell_padding``<br/> ``bottom_cell_padding``
+**``horizontal_cell_padding``** | ***number*** | ``right_cell_padding``<br/> ``left_cell_padding``
+**``title_padding``** | ***number*** | ``title_top_padding``<br/> ``title_right_padding``<br/> ``title_bottom_padding``<br/> ``title_left_padding``
+**``title_vertical_padding``** | ***number*** | ``title_top_padding``<br/> ``title_bottom_padding``
+**``title_horizontal_padding``** | ***number*** | ``title_right_padding``<br/> ``title_left_padding``
+**``margin``** | ***number*** | ``top_margin``<br/> ``right_margin``<br/> ``bottom_margin``<br/> ``left_margin``
+**``vertical_margin``** | ***number*** | ``top_margin``<br/> ``bottom_margin``
+**``horizontal_margin``** | ***number*** | ``right_margin``<br/> ``left_margin``
+**``extra_margin_when_activated``** | ***number*** | ``extra_top_margin_when_activated``<br/> ``extra_right_margin_when_activated``<br/> ``extra_bottom_margin_when_activated``<br/> ``extra_left_margin_when_activated``
+**``extra_vertical_margin_when_activated``** | ***number*** | ``extra_top_margin_when_activated``<br/> ``extra_bottom_margin_when_activated``
+**``extra_horizontal_margin_when_activated``** | ***number*** | ``extra_right_margin_when_activated``<br/> ``extra_left_margin_when_activated``
+**``spacing``** | ***number*** | ``horizontal_spacing``<br/> ``vertical_spacing``
 
 ### Example of working with styles
 
@@ -196,4 +196,4 @@ This file contains miscellaneous utility functions.
 
 Makes a deep copy of the object.
 
-* **``obj``** – ***[any]*** an object to make a deep copy of
+* **``obj``** – ***any*** an object to make a deep copy of
